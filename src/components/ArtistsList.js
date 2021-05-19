@@ -14,12 +14,12 @@ function ArtistsList() {
       setArtistsList(artists);
     }
     fetchData();
-  })
+  }, [country])
 
   return(
     <div>
       <h3 className="mainHeader">Top artists</h3>
-      <CountryDropdown />
+      <CountryDropdown selectedCountry={country} />
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -30,7 +30,7 @@ function ArtistsList() {
           </tr>
         </thead>
         <tbody>
-          {artistsList.map((artist) => 
+          {artistsList.map((artist) =>
             <tr key={artist.mbid}>
               <td>{artist.id}</td>
               <td>{artist.name}</td>
